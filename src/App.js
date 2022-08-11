@@ -32,7 +32,7 @@ function App() {
 
     fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${position.lat}&lon=${position.lon}&appid=2464cea4299cf8c159463e039edc6cb6&units=metric`)
       .then(response => response.json())
-      .then(data => console.log(data))
+      .then(data => setPositionData(data))
       .catch(err => console.error(err));
   }, [city, position.lat, position.lon]);
 
@@ -59,7 +59,12 @@ function App() {
           {positionData.list?.map(item => (
             <div key={item.dt}>{tConvert(item.dt_txt.slice(-8))}
               <br />
-              {item.main.temp.toFixed(2)}°
+              <p>
+                <img src={`http://openweathermap.org/img/wn/${item.weather?.map(item => item.icon)}.png`} alt='icon' />
+                {item.main.temp.toFixed(0)}°
+              </p>
+              <div >{item.dt_txt.slice(5, 10).split('-').reverse('').join('.')} </div>
+              <hr />
             </div>
 
           ))}
