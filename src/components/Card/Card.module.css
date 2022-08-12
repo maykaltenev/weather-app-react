@@ -1,0 +1,9 @@
+.card {
+  display: flex;
+  justify-content: center;
+  flex-direction: column-reverse;
+  border: 1px red solid;
+}
+img {
+  width: min-content;
+}
