@@ -9,7 +9,7 @@ function Card() {
   const { search } = useContext(DataContext);
   return (
     <div className={classes.card}>
-      <div>The city is: {search?.name}</div>
+      <div className={classes.name}>The city is: {search?.name}</div>
       <div>Temperature is {search.main?.temp.toFixed(0)}° </div>
       <div>{search.weather?.map((item) => item.main)}</div>
       <span>

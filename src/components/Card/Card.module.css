@@ -1,8 +1,12 @@
 .card {
   display: flex;
   justify-content: center;
-  flex-direction: column-reverse;
+  align-items: center;
+  flex-direction: column;
   border: 1px red solid;
+}
+.name {
+  font-size: 3rem;
 }
 img {
   width: min-content;
