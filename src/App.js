@@ -13,6 +13,7 @@ import { DataContext } from "./context/Data";
 import Form from "./components/Form";
 import Card from "./components/Card";
 
+
 function App() {
   const moment = require('moment')
   const { city, setCity, data, setData, search, setSearch, position, setPosition, positionData, setPositionData } = useContext(DataContext);
@@ -45,7 +46,7 @@ function App() {
 
 
   return (
-    <div>
+    <div className="wrapper">
       {/* <form >
         <input type='search' name='search' onChange={(e) => setData(e.target.value)} />
         <button onClick={onClickHandler}>Search</button>

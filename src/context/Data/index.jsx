@@ -8,6 +8,7 @@ export const DataContextProvider = ({ children }) => {
   const [search, setSearch] = useState("");
   const [position, setPosition] = useState({ lat: "", lon: "" });
   const [positionData, setPositionData] = useState("");
+  const [conditions, setWeatherConditions] = useState("");
 
   return (
     <DataContext.Provider
@@ -22,6 +23,8 @@ export const DataContextProvider = ({ children }) => {
         setPosition,
         positionData,
         setPositionData,
+        conditions,
+        setWeatherConditions,
       }}
     >
       {children}
