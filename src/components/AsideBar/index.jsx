@@ -34,13 +34,12 @@ export default function AsideBar() {
     e.preventDefault();
     setFuture((future) => !future);
     console.log(positionData);
-
     if (Object.entries(search).length !== 0) {
       // let latitude = search.coord.lat;
       // let longitude = search.coord.lon;
-      setPosition({ lat: search.lat, lon: search.lon });
+      setPosition({ lat: search.coord.lat, lon: search.coord.lon });
+      console.log(position);
     }
-    console.log(position);
   };
   return (
     <button onClick={futureHandler} className={classes.btn}>
