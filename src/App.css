@@ -1,8 +1,18 @@
+.clouds {
+  background-image: url("../public/images/clouds.png");
+  width: 100vw;
+  height: 100vh;
+}
+.clear {
+  background-image: url("../public/images/clear_night.gif");
+  background-size: 100% 100%;
+  width: 100vw;
+  height: 100vh;
+}
+
 .wrapper {
   width: 100vw;
   height: 100vh;
-  background-image: url("../public/images/clouds.png");
-  background-size: 100% 100%;
 }
 
 .leaflet-container {

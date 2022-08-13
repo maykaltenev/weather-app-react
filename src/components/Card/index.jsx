@@ -1,4 +1,5 @@
-import React, { useContext } from "react";
+import { data } from "autoprefixer";
+import React, { useContext, useEffect } from "react";
 
 // Context
 import { DataContext } from "../../context/Data";
@@ -6,15 +7,26 @@ import { DataContext } from "../../context/Data";
 // Style
 import classes from "./Card.module.css";
 function Card() {
-  const { search, conditions, setWeatherConditions } = useContext(DataContext);
-  const handleChange = (e) => {
-    setWeatherConditions(e.target.current.value);
-  };
+  const { search, conditions, setWeatherConditions, date, setDate } =
+    useContext(DataContext);
+  useEffect(() => {
+    if (Object.entries(search).length !== 0) {
+      let result = search.weather?.map((item) => item.main);
+      setWeatherConditions(result?.map((item) => item.toLowerCase()));
+      let time = search.dt;
+      let dateVal = new Date(time * 1000).toUTCString();
+      let trimmedValue = dateVal.slice(0, 16);
+      setDate(trimmedValue);
+      console.log(trimmedValue);
+    }
+    console.log(data);
+  }, [search]);
 
   return (
     <div className={classes.card}>
       <div className={classes.name}>{search?.name}</div>
-      <img
+      <div className={classes.date}>{date}</div>
+      <div
         src={`http://openweathermap.org/img/wn/${search.weather?.map(
           (item) => item.icon
         )}.png`}
@@ -22,21 +34,22 @@ function Card() {
       />
       <div className={classes.temperature}>{search.main?.temp.toFixed(0)}</div>
 
-      <div
-        onChange={handleChange}
-        value={search.weather?.map((item) => item.main)}
-        className={classes.conditions}
-      >
+      <div className={classes.conditions}>
         {search.weather?.map((item) => item.main)}
       </div>
       <span className="highLow">
         {search.main?.temp_max.toFixed(0)}° | {search.main?.temp_min.toFixed(0)}
         °
       </span>
-      <div>
-        There will be {search.weather?.map((item) => item.description)} and the
-        temperature will feel like {search.main?.feels_like.toFixed(0)}°. The
-        wind speed is {search.wind?.speed}
+      <div className={classes.extra}>
+        |{" "}
+        {search.weather
+          ?.map((item) => item.description)[0]
+          .split(" ")
+          .map((item) => item[0].toUpperCase() + item.slice(1))
+          .join(" ")}{" "}
+        | Feels Like: {search.main?.feels_like.toFixed(0)}° | {"Wind: "}
+        {search.wind?.speed} km/h
       </div>
       <p>{conditions}</p>
     </div>

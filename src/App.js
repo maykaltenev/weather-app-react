@@ -16,7 +16,7 @@ import Card from "./components/Card";
 
 function App() {
   const moment = require('moment')
-  const { city, setCity, data, setData, search, setSearch, position, setPosition, positionData, setPositionData } = useContext(DataContext);
+  const { conditions, city, setCity, data, setData, search, setSearch, position, setPosition, positionData, setPositionData } = useContext(DataContext);
 
 
   // const onClickHandler = (e) => {
@@ -46,20 +46,9 @@ function App() {
 
 
   return (
-    <div className="wrapper">
-      {/* <form >
-        <input type='search' name='search' onChange={(e) => setData(e.target.value)} />
-        <button onClick={onClickHandler}>Search</button>
-      </form> */}
+    <div className={conditions ? conditions : 'wrapper'}>
       <Form />
-      {/* <div>The city is: {search?.name}</div>
-      <div>Temperature is {search.main?.temp.toFixed(0)}° </div>
-      <div>{search.weather?.map(item => item.main)}</div> */}
       <Card />
-      {/* <span>H: {search.main?.temp_max.toFixed(0)}° L: {search.main?.temp_min.toFixed(0)}°</span>
-      <img src={`http://openweathermap.org/img/wn/${search.weather?.map(item => item.icon)}.png`} alt='icon' />
-      <div>There will be {search.weather?.map(item => item.description)} and the temperature will feel like {search.main?.feels_like.toFixed(0)}°. The wind speed is {search.wind?.speed}</div> */}
-      <div>{position.lat}</div>
       <div>
         <img src={`https://tile.openstreetmap.fr/hot/${position.lat}/${position.lon}.png`} alt='location' />
         <h1>5 days forcast</h1>

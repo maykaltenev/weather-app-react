@@ -9,10 +9,13 @@ export const DataContextProvider = ({ children }) => {
   const [position, setPosition] = useState({ lat: "", lon: "" });
   const [positionData, setPositionData] = useState("");
   const [conditions, setWeatherConditions] = useState("");
+  const [date, setDate] = useState("");
 
   return (
     <DataContext.Provider
       value={{
+        date,
+        setDate,
         city,
         setCity,
         data,
