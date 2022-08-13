@@ -1,7 +1,10 @@
 .clouds {
-  background-image: url("../public/images/clouds.png");
+  background-image: url("../public/images/day_clouds.gif");
   width: 100vw;
   height: 100vh;
+  overflow: scroll;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
 }
 .clear {
   background-image: url("../public/images/clear_night.gif");
@@ -9,14 +12,31 @@
   width: 100vw;
   height: 100vh;
 }
-
+.rain {
+  background-image: url("../public/images/rain_night.gif");
+  background-size: 100% 100%;
+  width: 100vw;
+  height: 100vh;
+}
+.fog {
+  background-image: url("../public/images/mist.gif");
+  background-size: 100% 100%;
+  width: 100vw;
+  height: 100vh;
+}
+.fog {
+  background-image: url("../public/images/snow.gif");
+  background-size: 100% 100%;
+  width: 100vw;
+  height: 100vh;
+}
 .wrapper {
   width: 100vw;
   height: 100vh;
 }
 
 .leaflet-container {
-  width: 50vw;
-  height: 50vh;
+  width: 500px;
+  height: 500px;
   z-index: 1;
 }

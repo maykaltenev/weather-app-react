@@ -15,12 +15,14 @@ export default function Form() {
     setTheme((theme) => !theme);
     setCity(data);
     setId(search.id);
+    e.target.value = "";
   };
   return (
     <form className="search">
       <input
         type="text"
         name="location"
+        value={data}
         onChange={(e) => setData(e.target.value)}
         className={theme === false ? "search active input" : "search input"}
         placeholder="Search..."
