@@ -6,18 +6,15 @@ import { DataContext } from "../../context/Data";
 //Style
 import "./Form.css";
 export default function Form() {
-  const { setCity, setPosition, setData, data, search } =
-    useContext(DataContext);
+  const { id, setId, setCity, setData, data, search } = useContext(DataContext);
 
   const [theme, setTheme] = useState(true);
 
   const onClickHandler = (e) => {
     e.preventDefault();
     setTheme((theme) => !theme);
-    console.log(theme);
     setCity(data);
-    // setPosition({ lat: search?.coord.lat, lon: search?.coord.lon });
-    // console.log(theme);
+    setId(search.id);
   };
   return (
     <form className="search">

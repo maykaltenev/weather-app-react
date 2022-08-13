@@ -1,4 +1,3 @@
-import { data } from "autoprefixer";
 import React, { useContext, useEffect } from "react";
 
 // Context
@@ -7,7 +6,7 @@ import { DataContext } from "../../context/Data";
 // Style
 import classes from "./Card.module.css";
 function Card() {
-  const { search, conditions, setWeatherConditions, date, setDate } =
+  const { position, search, conditions, setWeatherConditions, date, setDate } =
     useContext(DataContext);
   useEffect(() => {
     if (Object.entries(search).length !== 0) {
@@ -19,7 +18,7 @@ function Card() {
       setDate(trimmedValue);
       console.log(trimmedValue);
     }
-    console.log(data);
+    console.log(search);
   }, [search]);
 
   return (
@@ -33,7 +32,6 @@ function Card() {
         alt="icon"
       />
       <div className={classes.temperature}>{search.main?.temp.toFixed(0)}</div>
-
       <div className={classes.conditions}>
         {search.weather?.map((item) => item.main)}
       </div>

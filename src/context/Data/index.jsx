@@ -10,10 +10,16 @@ export const DataContextProvider = ({ children }) => {
   const [positionData, setPositionData] = useState("");
   const [conditions, setWeatherConditions] = useState("");
   const [date, setDate] = useState("");
+  const [id, setId] = useState("");
+  const [future, setFuture] = useState(false);
 
   return (
     <DataContext.Provider
       value={{
+        future,
+        setFuture,
+        id,
+        setId,
         date,
         setDate,
         city,

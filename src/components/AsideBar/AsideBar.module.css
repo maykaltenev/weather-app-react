@@ -1,0 +1,19 @@
+.btn {
+  background-color: rgba(181, 181, 181, 0.941);
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+  font-size: 1.7rem;
+  position: absolute;
+  top: 0;
+  left: 3;
+  width: 4rem;
+  height: 4rem;
+  /* round button */
+  border-radius: 50%;
+  border: 0;
+  margin-top: 25rem;
+  margin-left: 3rem;
+}
+.btn:hover {
+  background-color: rgba(166, 165, 165, 0.941);
+}
