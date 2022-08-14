@@ -27,18 +27,21 @@ function App() {
       .catch(err => console.error(err));
 
 
-
   }, [city]);
-
 
   return (
     <div className={conditions && dayOrNight ? `${conditions} ${dayOrNight}` : 'wrapper'
     }>
-
       <Form />
-      <Card />
-      <AsideBar />
-      <Future />
+
+      {city.length <= 0 ? '' :
+        (
+          <>
+            <Card />
+            <AsideBar />
+            <Future />
+          </>
+        )}
       {
         position.lat !== '' ? (
           <MapContainer center={[position.lat, position.lon]} zoom={13} scrollWheelZoom={false}>

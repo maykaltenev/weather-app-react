@@ -31,8 +31,9 @@
   height: 100vh;
 }
 .rain {
-  background-image: url("../public/images/rain_night.gif");
+  background-image: url("../public/images/rainy_day.gif");
   background-size: 100% 100%;
+  color: white;
   width: 100vw;
   height: 100vh;
 }
