@@ -6,8 +6,16 @@ import { DataContext } from "../../context/Data";
 // Style
 import classes from "./Card.module.css";
 function Card() {
-  const { position, search, conditions, setWeatherConditions, date, setDate } =
-    useContext(DataContext);
+  const {
+    dayOrNight,
+    setDayOrNight,
+    position,
+    search,
+    conditions,
+    setWeatherConditions,
+    date,
+    setDate,
+  } = useContext(DataContext);
   useEffect(() => {
     if (Object.entries(search).length !== 0) {
       let result = search.weather?.map((item) => item.main);
@@ -17,9 +25,28 @@ function Card() {
       let trimmedValue = dateVal.slice(0, 16);
       setDate(trimmedValue);
       console.log(trimmedValue);
+      // Get Current Time
+      function addZero(i) {
+        if (i < 10) {
+          i = "0" + i;
+        }
+        return i;
+      }
+      const d = new Date();
+      let h = addZero(d.getHours());
+      let m = addZero(d.getMinutes());
+      let s = addZero(d.getSeconds());
+      let currTime = h + ":" + m + ":" + s;
+      let sunriseUNIX = search.sys?.sunrise;
+      let sunsetUNIX = search.sys?.sunset;
+      let sunrise = new Date(sunriseUNIX * 1000).toUTCString().slice(17, 26);
+      let sunset = new Date(sunsetUNIX * 1000).toUTCString().slice(17, 26);
+      let currentResult =
+        currTime >= sunrise && currTime < sunset ? "day" : "night";
+      console.log(currentResult);
+      setDayOrNight(currentResult);
     }
-    console.log(search);
-  }, [search]);
+  }, [search, dayOrNight]);
 
   return (
     <div className={classes.card}>

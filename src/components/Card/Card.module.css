@@ -1,19 +1,16 @@
 .card {
   margin-top: 1rem;
   padding-bottom: 15%;
-  color: #fff;
   overflow: auto;
   width: 100%;
   text-align: center;
 }
 .name {
-  color: #fff;
   font-size: 2em;
   font-weight: 700;
   margin: 0;
 }
 .date {
-  color: #fff;
   font-size: 1.3em;
   font-weight: 300;
   padding-top: 1rem;

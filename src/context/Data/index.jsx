@@ -12,10 +12,13 @@ export const DataContextProvider = ({ children }) => {
   const [date, setDate] = useState("");
   const [id, setId] = useState("");
   const [future, setFuture] = useState(false);
+  const [dayOrNight, setDayOrNight] = useState(false);
 
   return (
     <DataContext.Provider
       value={{
+        dayOrNight,
+        setDayOrNight,
         future,
         setFuture,
         id,

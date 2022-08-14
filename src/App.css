@@ -1,14 +1,32 @@
-.clouds {
+.clouds.day {
   background-image: url("../public/images/day_clouds.gif");
   width: 100vw;
   height: 100vh;
+  color: rgb(58, 144, 218);
   overflow: scroll;
   background-size: 100% 100%;
   background-repeat: no-repeat;
 }
-.clear {
+.clouds.night {
+  background-image: url("../public/images/mist.gif");
+  width: 100vw;
+  height: 100vh;
+  color: rgba(12, 93, 66, 0.85);
+  overflow: scroll;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+.clear.day {
+  background-image: url("../public/images/clear_day.gif");
+  background-size: 100% 100%;
+  color: tomato;
+  width: 100vw;
+  height: 100vh;
+}
+.clear.night {
   background-image: url("../public/images/clear_night.gif");
   background-size: 100% 100%;
+  color: rgba(179, 220, 255, 0.687);
   width: 100vw;
   height: 100vh;
 }

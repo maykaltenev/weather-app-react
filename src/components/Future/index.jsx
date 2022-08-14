@@ -12,15 +12,6 @@ function Future() {
   const { future, positionData, position, setPositionData, search } =
     useContext(DataContext);
 
-  //   useEffect(() => {
-  //     fetch(
-  //       `https://api.openweathermap.org/data/2.5/forecast?lat=${position.lat}&lon=${position.lon}&appid=2464cea4299cf8c159463e039edc6cb6&units=metric`
-  //     )
-  //       .then((response) => response.json())
-  //       .then((data) => setPositionData(data))
-  //       .catch((err) => console.error(err));
-  //   }, [future]);
-
   return (
     <div>
       {/* <div>{search?.coord[0].lan}</div> */}
