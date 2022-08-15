@@ -5,6 +5,9 @@ import { DataContext } from "../../context/Data";
 
 // Style
 import classes from "./Card.module.css";
+
+//Components
+import Clock from "../Clock";
 function Card() {
   const {
     dayOrNight,
@@ -51,6 +54,7 @@ function Card() {
   return (
     <div className={classes.card}>
       <div className={classes.name}>{search?.name}</div>
+      <Clock hours12={false} />
       <div className={classes.date}>{date}</div>
       <div
         src={`http://openweathermap.org/img/wn/${search.weather?.map(

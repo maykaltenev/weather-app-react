@@ -18,6 +18,25 @@ import Future from "./components/Future";
 
 
 function App() {
+  // function currentTime() {
+  //   const date = new Date(); /* creating object of Date class */
+  //   let hour = date.getHours();
+  //   let min = date.getMinutes();
+  //   let sec = date.getSeconds();
+  //   hour = updateTime(hour);
+  //   min = updateTime(min);
+  //   sec = updateTime(sec);
+  //   let clock = hour + " : " + min + " : " + sec; /* adding time to the div */
+  //   let t = setTimeout(function () { currentTime() }, 1000); /* setting timer */
+  // }
+  // function updateTime(k) {
+  //   if (k < 10) {
+  //     return "0" + k;
+  //   }
+  //   else {
+  //     return k;
+  //   }
+  // }
 
   const { dayOrNight, conditions, city, setSearch, position, search } = useContext(DataContext);
   useEffect(() => {
@@ -25,7 +44,6 @@ function App() {
       .then(response => response.json())
       .then(data => setSearch(data))
       .catch(err => console.error(err));
-
 
   }, [city]);
 
@@ -40,6 +58,7 @@ function App() {
             <Card />
             <AsideBar />
             <Future />
+
           </>
         )}
       {

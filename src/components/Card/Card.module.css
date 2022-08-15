@@ -44,3 +44,9 @@ img {
   text-align: left;
   font-style: italic;
 }
+.day {
+  color: tomato;
+}
+.night {
+  color: rgb(0, 255, 234);
+}

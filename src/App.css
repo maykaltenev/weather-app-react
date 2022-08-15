@@ -2,7 +2,7 @@
   background-image: url("../public/images/day_clouds.gif");
   width: 100vw;
   height: 100vh;
-  color: rgb(58, 144, 218);
+  color: tomato;
   overflow: scroll;
   background-size: 100% 100%;
   background-repeat: no-repeat;
@@ -26,7 +26,7 @@
 .clear.night {
   background-image: url("../public/images/clear_night.gif");
   background-size: 100% 100%;
-  color: rgba(179, 220, 255, 0.687);
+  color: rgba(249, 46, 0, 0.687);
   width: 100vw;
   height: 100vh;
 }
