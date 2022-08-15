@@ -1,6 +1,6 @@
 
 import { useEffect, useContext } from "react";
-
+import usePrevious from "./hooks/usePrevious";
 import { MapContainer } from 'react-leaflet/MapContainer'
 import { TileLayer } from 'react-leaflet/TileLayer'
 import { Marker, Popup } from "react-leaflet";
@@ -39,12 +39,12 @@ function App() {
   // }
 
   const { dayOrNight, conditions, city, setSearch, position, search } = useContext(DataContext);
+  const previous = usePrevious(city)
   useEffect(() => {
     fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=2464cea4299cf8c159463e039edc6cb6&units=metric`)
       .then(response => response.json())
       .then(data => setSearch(data))
       .catch(err => console.error(err));
-
   }, [city]);
 
   return (
@@ -58,7 +58,6 @@ function App() {
             <Card />
             <AsideBar />
             <Future />
-
           </>
         )}
       {

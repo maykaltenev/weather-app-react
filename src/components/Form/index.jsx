@@ -6,7 +6,7 @@ import { DataContext } from "../../context/Data";
 //Style
 import "./Form.css";
 export default function Form() {
-  const { id, setId, setCity, setData, data, search } = useContext(DataContext);
+  const { setCity, setData, data, search } = useContext(DataContext);
 
   const [theme, setTheme] = useState(true);
 
@@ -14,8 +14,6 @@ export default function Form() {
     e.preventDefault();
     setTheme((theme) => !theme);
     setCity(data);
-    setId(search.id);
-    e.target.value = "";
   };
   return (
     <form className="search">

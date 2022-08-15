@@ -1,0 +1,14 @@
+.container {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: rgb(207, 234, 0);
+}
+.card {
+  width: 20%;
+  border: 0.5px rgb(159, 144, 147) solid;
+  background-color: rgba(107, 111, 104, 0.751);
+  margin: 2px;
+}

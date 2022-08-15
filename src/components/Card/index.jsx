@@ -27,7 +27,6 @@ function Card() {
       let dateVal = new Date(time * 1000).toUTCString();
       let trimmedValue = dateVal.slice(0, 16);
       setDate(trimmedValue);
-      console.log(trimmedValue);
       // Get Current Time
       function addZero(i) {
         if (i < 10) {
@@ -46,7 +45,6 @@ function Card() {
       let sunset = new Date(sunsetUNIX * 1000).toUTCString().slice(17, 26);
       let currentResult =
         currTime >= sunrise && currTime < sunset ? "day" : "night";
-      console.log(currentResult);
       setDayOrNight(currentResult);
     }
   }, [search, dayOrNight]);

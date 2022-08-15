@@ -10,7 +10,7 @@ export const DataContextProvider = ({ children }) => {
   const [positionData, setPositionData] = useState("");
   const [conditions, setWeatherConditions] = useState("");
   const [date, setDate] = useState("");
-  const [id, setId] = useState("");
+  const [fiveDays, setFiveDays] = useState("");
   const [future, setFuture] = useState(false);
   const [dayOrNight, setDayOrNight] = useState(false);
 
@@ -21,8 +21,8 @@ export const DataContextProvider = ({ children }) => {
         setDayOrNight,
         future,
         setFuture,
-        id,
-        setId,
+        fiveDays,
+        setFiveDays,
         date,
         setDate,
         city,

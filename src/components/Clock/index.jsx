@@ -1,13 +1,5 @@
 import React, { Component } from "react";
-const clockTile = {
-  color: "tomato",
-  textAlign: "center",
-  fontSize: "2rem",
-  padding: "4rem 6rem",
-};
-const clockSpan = {
-  padding: "4px",
-};
+import classes from "./Clock.module.css";
 let runner;
 class Clock extends Component {
   constructor(props) {
@@ -18,7 +10,7 @@ class Clock extends Component {
   }
   getCurrentTime = () => {
     const locale = this.props.locale ? this.props.locale : [];
-    const hour12 = this.props.hour12 == false ? false : true;
+    const hour12 = this.props.hour12 === false ? false : true;
     let hour, minute, second;
     if (this.props.format) {
       switch (this.props.format.toLowerCase()) {
@@ -61,8 +53,8 @@ class Clock extends Component {
   }
   render() {
     return (
-      <div style={clockTile}>
-        <span style={clockSpan}>{this.state.time}</span>
+      <div className={classes.clockTile}>
+        <span>{this.state.time}</span>
       </div>
     );
   }

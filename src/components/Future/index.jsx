@@ -3,19 +3,38 @@ import React, { useContext, useEffect } from "react";
 // Context
 import { DataContext } from "../../context/Data";
 
+// Styles
+import classes from "./Future.module.css";
 function Future() {
   const moment = require("moment");
   function tConvert(time) {
     // Check correct time format and split into components
     return moment(time, "hh:mm a").format("hh:mm A"); // return adjusted time or original string
   }
-  const { future, positionData, position, setPositionData, search } =
+  const { fiveDays, future, positionData, position, setPositionData, search } =
     useContext(DataContext);
 
   return (
-    <div>
-      {/* <div>{search?.coord[0].lan}</div> */}
-      <div>{/* {positionData.list} {position[0].lat} {position.lon} */}</div>
+    <div className={classes.container}>
+      {fiveDays &&
+        fiveDays?.map((item, i) => {
+          return (
+            <div className={classes.card} key={i}>
+              <div>
+                {item.date}
+                <div>
+                  <img
+                    src={`http://openweathermap.org/img/wn/${item.img}.png`}
+                    alt="icon"
+                  />
+                  {item.main}
+                </div>
+                <div>{item.temp}°</div>
+              </div>
+            </div>
+          );
+        })}
+      {/*  // 5 Days Full Forecast
       <h1>5 days forcast</h1>
       <div>
         {positionData.list?.map((item) => (
@@ -36,8 +55,8 @@ function Future() {
             </div>
             <hr />
           </div>
-        ))}
-      </div>
+        ))} 
+      </div>*/}
     </div>
   );
 }

@@ -1,9 +1,14 @@
 .card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   margin-top: 1rem;
   padding-bottom: 15%;
   overflow: auto;
   width: 100%;
   text-align: center;
+  color: #00fe9b;
 }
 .name {
   font-size: 2em;

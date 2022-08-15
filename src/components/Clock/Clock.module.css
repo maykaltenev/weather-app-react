@@ -1,0 +1,16 @@
+.clockTile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 10rem;
+  width: 10rem;
+  text-align: center;
+  font-size: 1.5rem;
+  color: #00fe9b;
+  border: 2px #00fe9b solid;
+  background-color: #e1035f1f;
+  box-shadow: 0 0 25px 2.5px #2dd9fe;
+  border-radius: 35%;
+  box-sizing: border-box;
+  font-family: "Silkscreen", cursive;
+}
