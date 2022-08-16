@@ -1,5 +1,5 @@
 
-import { useEffect, useContext } from "react";
+import { useEffect, useContext, useState } from "react";
 import usePrevious from "./hooks/usePrevious";
 import { MapContainer } from 'react-leaflet/MapContainer'
 import { TileLayer } from 'react-leaflet/TileLayer'
@@ -14,8 +14,6 @@ import Form from "./components/Form";
 import Card from "./components/Card";
 import AsideBar from "./components/AsideBar";
 import Future from "./components/Future";
-
-
 
 function App() {
   // function currentTime() {
@@ -37,41 +35,48 @@ function App() {
   //     return k;
   //   }
   // }
-
-  const { dayOrNight, conditions, city, setSearch, position, search } = useContext(DataContext);
+  const [newMap, setNewMap] = useState(false);
+  const { fiveDays, future, dayOrNight, conditions, city, setSearch, position, search } = useContext(DataContext);
   const previous = usePrevious(city)
   useEffect(() => {
     fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=2464cea4299cf8c159463e039edc6cb6&units=metric`)
       .then(response => response.json())
-      .then(data => setSearch(data))
+      .then(data => { console.log(data); setSearch(data) })
       .catch(err => console.error(err));
   }, [city]);
 
+  // useEffect(() => {
+  //   if (previous !== city) {
+  //     setNewMap(false);
+  //   }
+  //   console.log(newMap);
+  //   console.log(city);
+  //   console.log(previous)
+  // }, [city, previous])
   return (
     <div className={conditions && dayOrNight ? `${conditions} ${dayOrNight}` : 'wrapper'
     }>
       <Form />
-
       {city.length <= 0 ? '' :
         (
           <>
             <Card />
             <AsideBar />
-            <Future />
+            {fiveDays && future && <Future />}
           </>
         )}
-      {
-        position.lat !== '' ? (
-          <MapContainer center={[position.lat, position.lon]} zoom={13} scrollWheelZoom={false}>
-            <TileLayer
-              attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-            />
-            <Marker position={[position.lat, position.lon]}>
-              <Popup >
-              </Popup>
-            </Marker>
-          </MapContainer>) : ''
+      {(future && search.coord?.lat !== '') ? (
+        <MapContainer center={[search.coord?.lat, search.coord?.lon]} zoom={13} scrollWheelZoom={false}>
+          <TileLayer
+            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          />
+          <Marker position={[search.coord?.lat, search.coord?.lon]}>
+            <Popup >
+            </Popup>
+          </Marker>
+        </MapContainer>)
+        : ''
       }
     </div >
   );

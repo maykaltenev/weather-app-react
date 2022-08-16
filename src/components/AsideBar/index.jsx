@@ -21,14 +21,14 @@ export default function AsideBar() {
     setPositionData,
   } = useContext(DataContext);
 
-  useEffect(() => {
-    fetch(
-      `https://api.openweathermap.org/data/2.5/forecast?lat=${position.lat}&lon=${position.lon}&appid=2464cea4299cf8c159463e039edc6cb6&units=metric`
-    )
-      .then((response) => response.json())
-      .then((data) => setPositionData(data))
-      .catch((err) => console.error(err));
-  }, [future, position.log, position.lon]);
+  // useEffect(() => {
+  //   fetch(
+  //     `https://api.openweathermap.org/data/2.5/forecast?lat=${position.lat}&lon=${position.lon}&appid=2464cea4299cf8c159463e039edc6cb6&units=metric`
+  //   )
+  //     .then((response) => response.json())
+  //     .then((data) => setPositionData(data))
+  //     .catch((err) => console.error(err));
+  // }, [future, position.log, position.lon]);
 
   const handleRenderFuture = () => {
     const newPosition = positionData.list?.map((item) => {
@@ -47,17 +47,20 @@ export default function AsideBar() {
     console.log(only15PM);
   };
 
-  const futureHandler = (e) => {
-    e.preventDefault();
+  const futureHandler = () => {
+    // e.preventDefault();
+    fetch(
+      `https://api.openweathermap.org/data/2.5/forecast?lat=${search.coord?.lat}&lon=${search.coord?.lon}&appid=2464cea4299cf8c159463e039edc6cb6&units=metric`
+    )
+      .then((response) => response.json())
+      .then((data) => setPositionData(data))
+      .catch((err) => console.error(err));
+
     setFuture((future) => !future);
     console.log(positionData);
     handleRenderFuture();
     if (Object.entries(search).length !== 0) {
-      // let latitude = search.coord.lat;
-      // let longitude = search.coord.lon;
-      setPosition({ lat: search.coord.lat, lon: search.coord.lon });
-
-      console.log(position);
+      console.log("is here", position);
     }
   };
   return (

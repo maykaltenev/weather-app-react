@@ -16,24 +16,23 @@ function Future() {
 
   return (
     <div className={classes.container}>
-      {fiveDays &&
-        fiveDays?.map((item, i) => {
-          return (
-            <div className={classes.card} key={i}>
+      {fiveDays?.map((item, i) => {
+        return (
+          <div className={classes.card} key={i}>
+            <div>
+              {item.date}
               <div>
-                {item.date}
-                <div>
-                  <img
-                    src={`http://openweathermap.org/img/wn/${item.img}.png`}
-                    alt="icon"
-                  />
-                  {item.main}
-                </div>
-                <div>{item.temp}°</div>
+                <img
+                  src={`http://openweathermap.org/img/wn/${item.img}.png`}
+                  alt="icon"
+                />
+                {item.main}
               </div>
+              <div>{item.temp}°</div>
             </div>
-          );
-        })}
+          </div>
+        );
+      })}
       {/*  // 5 Days Full Forecast
       <h1>5 days forcast</h1>
       <div>
