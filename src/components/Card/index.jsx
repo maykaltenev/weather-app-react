@@ -12,7 +12,6 @@ function Card() {
   const {
     dayOrNight,
     setDayOrNight,
-    position,
     search,
     conditions,
     setWeatherConditions,

@@ -41,9 +41,7 @@
 .input:focus {
   outline: none;
 }
-.search.active {
-  margin-right: 3.5rem;
-}
+
 .search.active.input {
   width: 20rem;
   /* square button */
