@@ -9,41 +9,13 @@ class Clock extends Component {
     };
   }
   getCurrentTime = () => {
-    const locale = this.props.locale ? this.props.locale : [];
-    const hour12 = this.props.hour12 === false ? false : true;
-    let hour, minute, second;
-    if (this.props.format) {
-      switch (this.props.format.toLowerCase()) {
-        case "hh":
-          hour = "2-digit";
-          break;
-        case "hh-mm":
-          hour = "2-digit";
-          minute = "2-digit";
-          break;
-        case "hh-mm-ss":
-          hour = "2-digit";
-          minute = "2-digit";
-          second = "2-digit";
-          break;
-        default:
-          hour = "2-digit";
-          minute = "2-digit";
-          second = "2-digit";
-      }
-    }
     let d = new Date();
-    d.setHours(d.getUTCHours() + this.props.timeZoneOffset); // set time zone offset
-    let h = d.getHours();
-    let m = d.getMinutes();
-    let s = d.getSeconds();
-
-    let time = d.toUTCString({
-      hour12: hour12,
-      hour: h,
-      minute: m,
-      second: s,
-    });
+    let currentTimeByZone = new Date(
+      (d / 1000 + this.props.timeZoneOffset) * 1000
+    )
+      .toUTCString()
+      .slice(17, 26);
+    let time = currentTimeByZone;
     return time;
   };
 

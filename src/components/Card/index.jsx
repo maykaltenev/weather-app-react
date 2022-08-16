@@ -35,10 +35,6 @@ function Card() {
         return i;
       }
       const d = new Date();
-      let h = addZero(d.getHours());
-      let m = addZero(d.getMinutes());
-      let s = addZero(d.getSeconds());
-      let currTime = h + ":" + m + ":" + s;
       let sunriseUNIX = search.sys?.sunrise;
       let sunsetUNIX = search.sys?.sunset;
       let timezone = search?.timezone;
@@ -52,14 +48,14 @@ function Card() {
           ? "day"
           : "night";
       setDayOrNight(currentResult);
-      console.log(currentResult);
+      console.log(currentTimeByZone);
     }
   }, [search, dayOrNight]);
 
   return (
     <div className={classes.card}>
       <div className={classes.name}>{search?.name}</div>
-      {/* <Clock timeZoneOffset={search?.timezone} hours12={false} /> */}
+      <Clock timeZoneOffset={search?.timezone} />
       <div className={classes.date}>{date}</div>
       <div
         src={`http://openweathermap.org/img/wn/${search.weather?.map(
