@@ -32,11 +32,17 @@ class Clock extends Component {
           second = "2-digit";
       }
     }
-    let time = new Date().toLocaleTimeString(locale, {
+    let d = new Date();
+    d.setHours(d.getUTCHours() + this.props.timeZoneOffset); // set time zone offset
+    let h = d.getHours();
+    let m = d.getMinutes();
+    let s = d.getSeconds();
+
+    let time = d.toUTCString({
       hour12: hour12,
-      hour: hour,
-      minute: minute,
-      second: second,
+      hour: h,
+      minute: m,
+      second: s,
     });
     return time;
   };
@@ -60,3 +66,27 @@ class Clock extends Component {
   }
 }
 export default Clock;
+// export default function windTheClock(timeZoneOffset) {
+//   var d = new Date();
+//   d.setHours(d.getUTCHours() + timeZoneOffset); // set time zone offset
+//   var h = d.getHours();
+//   var m = d.getMinutes();
+//   var s = d.getSeconds();
+//   var ampm = h >= 12 ? "pm" : "am";
+//   h = h % 12;
+//   h = h ? h : 12; // replace '0' w/ '12'
+//   h = addLeadingZero(h);
+//   m = addLeadingZero(m);
+//   s = addLeadingZero(s);
+// }
+//   let clock = h + ":" + m + ":" + s + " " + ampm;
+//   setTimeout(function () {
+//     windTheClock(timeZoneOffset);
+//   }, 1000);
+
+//   {
+//     return (
+//       <div className={classes.clockTile}>
+//         <span>{this.state.time}</span>
+//       </div>
+//     );

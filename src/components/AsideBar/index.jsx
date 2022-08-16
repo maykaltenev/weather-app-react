@@ -46,19 +46,21 @@ export default function AsideBar() {
     console.log(newPosition);
     console.log(only15PM);
   };
-
+  useEffect(() => {
+    handleRenderFuture();
+  }, [positionData]);
   const futureHandler = () => {
     // e.preventDefault();
     fetch(
       `https://api.openweathermap.org/data/2.5/forecast?lat=${search.coord?.lat}&lon=${search.coord?.lon}&appid=2464cea4299cf8c159463e039edc6cb6&units=metric`
     )
       .then((response) => response.json())
-      .then((data) => setPositionData(data))
+      .then((data) => {
+        setFuture((future) => !future);
+        setPositionData(data);
+      })
       .catch((err) => console.error(err));
 
-    setFuture((future) => !future);
-    console.log(positionData);
-    handleRenderFuture();
     if (Object.entries(search).length !== 0) {
       console.log("is here", position);
     }

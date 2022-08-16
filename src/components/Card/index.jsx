@@ -41,18 +41,25 @@ function Card() {
       let currTime = h + ":" + m + ":" + s;
       let sunriseUNIX = search.sys?.sunrise;
       let sunsetUNIX = search.sys?.sunset;
+      let timezone = search?.timezone;
+      let currentTimeByZone = new Date((d / 1000 + timezone) * 1000)
+        .toUTCString()
+        .slice(17, 26);
       let sunrise = new Date(sunriseUNIX * 1000).toUTCString().slice(17, 26);
       let sunset = new Date(sunsetUNIX * 1000).toUTCString().slice(17, 26);
       let currentResult =
-        currTime >= sunrise && currTime < sunset ? "day" : "night";
+        currentTimeByZone >= sunrise && currentTimeByZone < sunset
+          ? "day"
+          : "night";
       setDayOrNight(currentResult);
+      console.log(currentResult);
     }
   }, [search, dayOrNight]);
 
   return (
     <div className={classes.card}>
       <div className={classes.name}>{search?.name}</div>
-      <Clock hours12={false} />
+      {/* <Clock timeZoneOffset={search?.timezone} hours12={false} /> */}
       <div className={classes.date}>{date}</div>
       <div
         src={`http://openweathermap.org/img/wn/${search.weather?.map(
