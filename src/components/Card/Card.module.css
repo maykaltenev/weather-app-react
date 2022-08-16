@@ -9,6 +9,7 @@
   width: 100%;
   text-align: center;
   color: #00fe9b;
+  text-shadow: 0.2px 0.3px 2px #06c97e;
 }
 .name {
   font-size: 2em;
