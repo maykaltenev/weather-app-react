@@ -18,7 +18,12 @@ function Future() {
     <div className={classes.container}>
       {fiveDays?.map((item, i) => {
         return (
-          <div className={classes.card} key={i}>
+          <div
+            onClick={(e) => console.log(e.target.id)}
+            className={classes.card}
+            key={i}
+            id={item.date}
+          >
             <div>
               {item.date}
               <div>

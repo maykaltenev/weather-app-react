@@ -4,12 +4,12 @@ import React, { useContext, useState } from "react";
 import { DataContext } from "../../context/Data";
 
 //Style
+
 import "./Form.css";
 export default function Form() {
-  const { setCity, setData, data, search, setFuture } = useContext(DataContext);
-
+  const { error, setError, setCity, setData, data, search, setFuture } =
+    useContext(DataContext);
   const [theme, setTheme] = useState(true);
-
   const onClickHandler = (e) => {
     e.preventDefault();
     setTheme((theme) => !theme);
@@ -22,9 +22,10 @@ export default function Form() {
         type="text"
         name="location"
         value={data}
+        required
         onChange={(e) => setData(e.target.value)}
         className={theme === false ? "search active input" : "search input"}
-        placeholder="Search..."
+        placeholder="Location..."
       />
       <button
         className={theme === false ? "search active btn" : "search btn"}

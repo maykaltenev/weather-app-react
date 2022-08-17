@@ -2,7 +2,6 @@
   background-image: url("../public/images/day_clouds.gif");
   width: 100vw;
   height: 100vh;
-  color: tomato;
   overflow: scroll;
   background-size: 100% 100%;
   background-repeat: no-repeat;
@@ -11,7 +10,6 @@
   background-image: url("../public/images/mist.gif");
   width: 100vw;
   height: 100vh;
-  color: rgba(12, 93, 66, 0.85);
   overflow: scroll;
   background-size: 100% 100%;
   background-repeat: no-repeat;
@@ -19,25 +17,59 @@
 .clear.day {
   background-image: url("../public/images/clear_day.gif");
   background-size: 100% 100%;
-  color: tomato;
+  overflow: scroll;
   width: 100vw;
   height: 100vh;
 }
 .clear.night {
   background-image: url("../public/images/clear_night.gif");
   background-size: 100% 100%;
-  color: rgba(249, 46, 0, 0.687);
+  overflow: scroll;
   width: 100vw;
   height: 100vh;
 }
-.rain {
-  background-image: url("../public/images/rainy_day.gif");
+.rain.day {
+  background-image: url("../public/images/rain_day.gif");
+  width: 100vw;
+  height: 100vh;
   background-size: 100% 100%;
+  overflow: scroll;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  color: white;
+}
+.rain.night {
+  background-image: url("../public/images/rain_night.gif");
+  width: 100vw;
+  height: 100vh;
+  background-size: 100% 100%;
+  overflow: scroll;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.thunderstorm.day {
+  background-image: url("../public/images/thunderstorm.gif");
+  background-size: 100% 100%;
+  overflow: scroll;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+}
+.thunderstorm.night {
+  background-image: url("../public/images/thunderstorm.gif");
+  background-size: 100% 100%;
+  overflow: scroll;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: tomato;
   width: 100vw;
   height: 100vh;
 }
@@ -65,4 +97,17 @@
   width: 500px;
   height: 500px;
   z-index: 1;
+}
+.error {
+  display: flex;
+  width: 100vw;
+  height: 50vh;
+  font-size: 1.5rem;
+  overflow: scroll;
+  align-self: center;
+  justify-content: end;
+  flex-direction: column;
+  color: #00fe9b;
+  text-shadow: 4px 3px 5px #ff0000;
+  z-index: 3;
 }

@@ -4,11 +4,19 @@
   justify-content: center;
   align-items: center;
   text-align: center;
-  color: rgb(207, 234, 0);
+  font-weight: 900;
+  color: rgb(251, 255, 0);
+  text-shadow: 1px 2px 4px #ff0000;
 }
 .card {
   width: 20%;
-  border: 0.5px rgb(159, 144, 147) solid;
-  background-color: rgba(107, 111, 104, 0.751);
+  border: 0.5px rgb(121, 243, 68) solid;
+  background-image: linear-gradient(
+    1477deg,
+    #ff00eab6,
+    #4a2ee6b7,
+    #b500fd58,
+    #4ff38b43
+  );
   margin: 2px;
 }

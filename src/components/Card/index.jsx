@@ -34,13 +34,16 @@ function Card() {
         return i;
       }
       const d = new Date();
-      let sunriseUNIX = search.sys?.sunrise;
-      let sunsetUNIX = search.sys?.sunset;
-      let timezone = search?.timezone;
+      let sunriseUNIX = search.sys?.sunrise; //1660730905
+      let sunsetUNIX = search.sys?.sunset; //1660780324
+      let timezone = search?.timezone; //-14400
       let currentTimeByZone = new Date((d / 1000 + timezone) * 1000)
         .toUTCString()
         .slice(17, 26);
+      // 13:00:00
+      //5:15:00
       let sunrise = new Date(sunriseUNIX * 1000).toUTCString().slice(17, 26);
+      // 20:15:00
       let sunset = new Date(sunsetUNIX * 1000).toUTCString().slice(17, 26);
       let currentResult =
         currentTimeByZone >= sunrise && currentTimeByZone < sunset
@@ -66,12 +69,11 @@ function Card() {
       <div className={classes.conditions}>
         {search.weather?.map((item) => item.main)}
       </div>
-      <span className="highLow">
+      <span className={classes.highLow}>
         {search.main?.temp_max.toFixed(0)}° | {search.main?.temp_min.toFixed(0)}
         °
       </span>
       <div className={classes.extra}>
-        |{" "}
         {search.weather
           ?.map((item) => item.description)[0]
           .split(" ")
@@ -80,7 +82,6 @@ function Card() {
         | Feels Like: {search.main?.feels_like.toFixed(0)}° | {"Wind: "}
         {search.wind?.speed} km/h
       </div>
-      <p>{conditions}</p>
     </div>
   );
 }

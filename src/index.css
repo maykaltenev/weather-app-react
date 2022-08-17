@@ -11,15 +11,16 @@ body {
   width: 100%;
 }
 body {
-  background-image: linear-gradient(9deg, #8f8ebf, #4a2ee6, #b600fdcc, #4ff38c);
-  background-size: 100% 300%;
+  /* background-image: linear-gradient(9deg, #8f8ebf, #4a2ee6, #b600fdcc, #4ff38c); */
+  background-image: url("../public/images/cyberpunk.gif");
+  background-size: cover;
   background-repeat: no-repeat;
   font-family: "Silkscreen", cursive;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-weight: 300;
+  font-weight: 900;
   letter-spacing: 0.05rem;
   line-height: 1.5;
   height: fit-content;
