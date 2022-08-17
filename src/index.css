@@ -15,9 +15,10 @@ body {
   background-image: url("../public/images/cyberpunk.gif");
   background-size: cover;
   background-repeat: no-repeat;
-  background-size: 100% 100%;
-  width: 100vw;
+  background-size: 140% 150%;
+  width: 90vw;
   height: 100vh;
+  overflow: scroll;
   font-family: "Silkscreen", cursive;
   display: flex;
   flex-direction: column;
