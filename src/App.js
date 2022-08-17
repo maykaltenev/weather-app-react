@@ -17,6 +17,7 @@ import Future from "./components/Future";
 function App() {
   const { fiveDays, future, dayOrNight, conditions, city, setSearch, search } = useContext(DataContext);
   const [error, setError] = useState(false)
+
   useEffect(() => {
     // fetch(`https://api.openweathermap.org/data/2.5/√?q=${city}&appid=2464cea4299cf8c159463e039edc6cb6&units=metric`)
     fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=2464cea4299cf8c159463e039edc6cb6&units=metric`)
@@ -34,15 +35,16 @@ function App() {
           return setError(true);
         } else {
           setError(false)
+
           setSearch(data);
         }
       })
       .catch(err => console.log(err));
     console.log(error)
+
   }, [city]);
   return (
     <div className={(conditions && dayOrNight) ? `${conditions} ${dayOrNight}` : 'wrapper'}>
-
       <Form />
       {error ? <p className="error">Human error detected!<br />
         Provide a valid location! </p> : (city.length <= 0) ? "" :
