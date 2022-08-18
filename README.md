@@ -1,6 +1,6 @@
 ## Weather App
 
-[Test this app yourself](weather-app-react-sandy-seven.vercel.app)
+[Test this app yourself](https://weather-app-react-maykal-tenev.vercel.app/)
 
 ---
 
@@ -74,7 +74,6 @@ ALl the gifs are from https://giphy.com/;
 Is inspired from:
 https://www.npmjs.com/package/react-digital-clock
 But there is a little twist on it from my side with the correct timezone.
-c
 
 ---
 
