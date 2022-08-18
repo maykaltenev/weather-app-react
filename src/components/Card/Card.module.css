@@ -4,13 +4,14 @@
   justify-content: center;
   align-items: center;
   margin-top: 1rem;
-  padding-bottom: 15%;
+  padding-bottom: 8%;
   overflow: auto;
   width: 100%;
   text-align: center;
   color: #00fe9b;
   text-shadow: 4px 2px 5px #df1fd2bd;
 }
+
 .name {
   font-size: 2em;
   font-weight: 700;
@@ -43,6 +44,7 @@ img {
 }
 .highLow {
   font-size: 2rem;
+  padding-bottom: 1rem;
 }
 .highLow:after {
   padding: 5px;

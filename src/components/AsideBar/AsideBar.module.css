@@ -15,6 +15,7 @@
   border-radius: 50%;
   border: 0;
   margin-left: 3rem;
+  margin-bottom: 2rem;
 }
 .btn:hover {
   background-color: rgba(0, 254, 25, 0.941);

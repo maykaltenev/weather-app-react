@@ -15,9 +15,8 @@ export default function AsideBar() {
     search,
     positionData,
     setFuture,
-    future,
     position,
-    setPosition,
+
     setPositionData,
   } = useContext(DataContext);
 

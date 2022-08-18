@@ -13,7 +13,7 @@ body {
 body {
   background-image: linear-gradient(9deg, #8f8ebf, #4a2ee6, #b600fdcc, #4ff38c);
   background-image: url("../public/images/cyberpunk.gif");
-  background-size: 120% 176%;
+  background-size: 110% 110%;
   background-repeat: no-repeat;
   width: 100vw;
   height: 100vh;
